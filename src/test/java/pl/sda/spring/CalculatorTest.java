@@ -47,6 +47,7 @@ public class CalculatorTest {
 
         Assert.assertEquals(49.0, actual, 0.000000000001);
     }
+
     @Test(expected = RuntimeException.class)
     public void shouldReturnRuntimeExceptionDivisionByZero(){
         double arg1 = 2.0;
@@ -54,6 +55,17 @@ public class CalculatorTest {
 
         calculator.calculate(OperationType.DIVISION, arg1, arg2);
     }
+
+    @Test
+    public void shouldReturnCorrectDivision(){
+        double arg1 = 25.0;
+        double arg2 = 5.0;
+
+        double actual = calculator.calculate(OperationType.DIVISION, arg1, arg2);
+
+        Assert.assertEquals(5.0, actual, 0.000000001);
+    }
+
     @Test
     public void shouldReturnCorrectPercentage(){
         double arg1 = 100.0;
@@ -63,6 +75,7 @@ public class CalculatorTest {
 
         Assert.assertEquals(25.0, actual, 0.000000001);
     }
+
     @Test
     public void shouldReturnCorrectPower(){
         double arg1 = 12.0;
